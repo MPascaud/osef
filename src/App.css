@@ -1,0 +1,369 @@
+/* reset css*/
+
+ul {
+  padding-inline-start: 0
+}
+
+/* end */
+
+.connexionBox {
+  background-color: #eceff1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.connexion > input {
+  box-sizing: border-box;
+  font-size: 24px;
+  padding: 5px;
+  border: 5px solid blue;
+  background-color: #fff;
+  border-width: 0 0 5px 0;
+  outline: none;
+}
+
+
+
+
+
+.page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  flex-wrap: wrap;
+  background-color: #E6E6FA;
+  justify-content: center;
+  text-align: start;
+}
+
+
+
+.menu {
+  flex-basis: 100%;
+  background-color: #800;
+}
+
+
+@media screen and (min-width: 452px){
+  .bann_cont {
+    height: 300px;
+  }
+}
+
+.banniere {
+  display: inline-flex; 
+  flex-basis: 100%;
+  background-color: #370;
+
+  max-height: 300px;
+  overflow: hidden;
+  width: 100%;
+  /*align-items: stretch;*/
+}
+
+
+.banniere_image {
+  /*min-height: 0px;*/
+  width: 100%;
+/*  max-height:400px; */
+  /*max-width:500px;*/
+  height: 100%;
+}
+
+
+
+.collection {
+  display: flex; 
+  background-color: yellow;
+  /*flex-basis: 100%;*/
+
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+
+}
+
+/*.presentation {
+  display: flex;
+}*/
+
+/*.avatar {
+  width :100px;
+  height: 100px;
+}*/
+
+.description {
+  
+
+  
+}
+
+.boutons {
+  display: flex;
+  background-color: #850;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  
+  /*height: 150%;*/
+
+  /*justify-content: space-evenly;*/
+}
+
+
+
+
+
+
+.ila_bouton, .ilveut_bouton {
+  height: 100%;
+  width: 50%;
+  /*flex-grow: 1;*/
+  /*display:none;*/
+
+}
+
+
+.ila_bouton {
+  background: green;
+}
+
+
+
+.ilveut_bouton {
+  background: red;
+}
+
+
+.listes {
+  display: flex;
+  /*display:none;*/
+  flex-direction: row;
+  background-color: blue;
+  flex-wrap: wrap;
+  /*flex-basis: 100%;*/
+
+}
+
+
+.ila, .ilveut {
+  display: flex;
+  /*display:none;*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  margin:5px;
+  width: 200px;
+  padding: 50px;
+  height: 50vh;
+  overflow : hidden;
+}
+
+
+.ila {
+  background-color: green;
+
+}
+
+.ilveut {
+  background-color: red;
+
+}
+
+
+
+.graine {
+  display: flex;
+  background-color: pink;
+
+}
+
+.pied {
+  flex-basis: 100%;
+  background-color: #00FFFF;
+  flex-grow: 0;
+}
+
+.contacter {
+  background-color: black;
+  position: fixed;
+  color: white;
+  top: 90vh;
+  right: 70px;
+}
+
+
+
+
+
+
+
+button {
+  font-size: 20px;
+  border: none;
+  color: white;
+  background-color: green;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/*.connexion {
+  max-width: 500px;
+  font-size: 24px;
+}*/
+.connexion > * {
+  width: 100%;
+}
+/*.connexion > h1{
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+  color: #1d1d1d;
+}*/
+
+
+@media screen and (max-width: 3660030px){
+  .collection {
+    
+  }
+  .mediacard {
+
+  }
+  .CI {/*carte d'identite*/
+   
+
+  }
+  .cardactionarea_CI {/*cardactionarea - avatar+nom+presentation*/
+
+
+  }
+  .cardmedia_CI {/*cardmedia - avatar*/
+  
+
+  }
+  .cardcontent_CI {/*cardcontent - nom+presentation*/
+ 
+  }
+  .cardnom_CI {/*cardnom - nom*/
+   
+  }
+  .cardpresentation_CI {/*cardpresentation - presentation*/
+  
+
+  }
+  .cardactions_CI {/*cardaction - les 2 boutons Typography*/
+   
+  }
+  .favoris_CI {/*bouton favoris*/
+  
+  }
+  .contacter_CI {/*bouton contacter*/
+ 
+
+  }
+  .listes, .boutons {
+  }
+  
+}
+
+@media screen and (max-width: 630px){
+  .collection {
+    display: flex;
+    flex-flow: row wrap;    
+  }
+  .mediacard {
+
+  }
+  .CI {/*carte d'identite*/
+    flex-flow: row wrap;    
+
+
+    max-width: 100vw;
+  }
+  .cardactionarea_CI {/*cardactionarea - avatar+nom+presentation*/
+    flex-flow: row wrap;    
+    
+    max-width: 100vw;
+
+  }
+  .cardmedia_CI {/*cardmedia - avatar*/
+  }
+  .cardcontent_CI {/*cardcontent - nom+presentation*/
+    text-align: center;
+
+  }
+  .cardnom_CI {/*cardnom - nom*/
+  }
+  .cardpresentation_CI {/*cardpresentation - presentation*/
+    justify-content: center;
+    
+    
+
+  }
+  .cardactions_CI {/*cardaction - les 2 boutons Typography*/
+   
+  }
+  .favoris_CI {/*bouton favoris*/
+  
+  }
+  .contacter_CI {/*bouton contacter*/
+ 
+
+  }
+  .listes, .boutons {
+  }
+  
+}
+
+@media screen and (min-width: 3000px){
+
+  .page {
+   /* transform: scale(5);
+    transform: translate();*/
+  }
+
+
+
+  /*p {
+
+    animation-duration: 3s;
+
+    animation-name: slidein;
+
+  }
+
+  ​
+
+  @keyframes slidein {
+
+    from {
+
+      margin-left: 100%;
+
+      width: 300%; 
+
+    }
+
+  ​
+
+    to {
+
+      margin-left: 0%;
+
+      width: 100%;
+
+    }
+
+  }*/
+
+
+
+
+}
+
+
