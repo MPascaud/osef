@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
+
 import banniere from './img/banniere1.jpg'
+import ila_image from '/'
+
 import Bienvenue from './components/Bienvenue'
 import Graine from './components/Graine'
-import Test from './components/Test'
-import PerfectScrollbar from 'perfect-scrollbar';
+// import Test from './components/Test'
+// import PerfectScrollbar from 'perfect-scrollbar';
 import Presentation from './components/Presentation'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -17,6 +20,8 @@ import Typography from '@material-ui/core/Typography';
 
 import MediaCard from './components/MediaCard'
 import Header from './components/Header'
+
+import Liste from './components/Liste'
 
 const db_graines = {
   graine1: {
@@ -50,7 +55,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -88,7 +93,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -126,7 +131,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -164,7 +169,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -202,7 +207,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -240,7 +245,7 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -278,7 +283,463 @@ const db_graines = {
     type:'caduc', //(vivace/ caduc)
     exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
     type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
-    rustique: true,
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine15: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine16: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine17: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine18: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine19: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine20: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine21: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine22: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine23: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine24: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine25: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine26: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine27: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine28: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine29: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine30: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine31: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine32: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine33: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine34: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine35: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine36: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
+    semis:'ete',//saison
+    arrosage:'rare',//abondant semi-abondant rare
+    origine:'Ailleurs',
+    popularité: 33,//sur 100
+    rarete: 'commune'//rare commune atypique
+  },
+  graine37: {
+    id: '1',
+    categorie: 'cat1',
+    variete: 'nom1',
+    photo:'',
+    type_de_troc:'echange',//(echange / don)
+    stock : 1,
+    infos_conseil:'vhiiihosovnsv',
+    germination:'10%',
+    type:'vivace', //(vivace/ caduc)
+    exposition:'ensoleille', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'acide', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique:'false',
+    semis:'printemps',//saison
+    arrosage:'abondant',//abondant semi-abondant rare
+    origine:'France',
+    popularité: 80,//sur 100
+    rarete: 'rare'//rare commune atypique
+  },
+  graine38: {
+    id: '2',
+    categorie: 'cat2',
+    variete: 'nom2',
+    photo:'',
+    type_de_troc:'don',//(echange / don)
+    stock : 11,
+    infos_conseil:'azzzzzzzzzzzsssssssssss',
+    germination:'40%',
+    type:'caduc', //(vivace/ caduc)
+    exposition:'mi-ombre', //(ensoleillé/ mi-ombre/ombre)
+    type_de_terre: 'calcaire', //(acide/ calcaire/ drainant/ humide/humifere/riche/ sec)
+    rustique: 'rustique',
     semis:'ete',//saison
     arrosage:'rare',//abondant semi-abondant rare
     origine:'Ailleurs',
@@ -330,29 +791,39 @@ const useStyles = makeStyles({
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
-    graines: db_graines,
+    ila_graines: db_graines,
+    ilveut_graines: db_graines,
     presentation: db_utilisateurs.pseudo2.presentation,
     avatar: db_utilisateurs.pseudo2.avatar,
     utilisateur: db_utilisateurs.pseudo2,
-    test: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    test: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+    switched: false,
   }
   componentDidMount(){
 
-      const ps = new PerfectScrollbar('#ilveut', {
-    wheelSpeed: 2,
-    maxScrollbarLength: 100,
-  });
 
-      const ps2 = new PerfectScrollbar('#ila', {
-    wheelSpeed: 2,
-    maxScrollbarLength: 100,
-  });
+    
+
+
+  //     const ps = new PerfectScrollbar('#ilveut', {
+  //   wheelSpeed: 2,
+  //   maxScrollbarLength: 100,
+  // });
+
+  //     const ps2 = new PerfectScrollbar('#ila', {
+  //   wheelSpeed: 2,
+  //   maxScrollbarLength: 100,
+  // });
  
 
-  console.log(this.state.graines)
+  // console.log(this.state.graines).
+
   }
   
-
+  handleSwitchClick() {
+    // const switched = this.state.switched;
+    this.setState({switched: !this.state.switched});
+  }
 
 
 
@@ -379,13 +850,46 @@ class App extends Component {
 
 
   render () {
-    const graines = Object.keys(this.state.graines)
-      .map(key => <Graine caracs={this.state.graines[key]}/>)
-    console.log(graines)
+    const graines = Object.keys(this.state.ila_graines)
+      .map(key => <Graine caracs={this.state.ila_graines[key]}/>)
+    // console.log(graines)
 
     // const graines = Object.keys(this.state.graines)
     //   .map(key => <SimpleCard caracs={this.state.graines[key]} />)
-
+    const switched = this.state.switched;
+    let titre_mob;
+    let liste_mob;
+    let switch_texte;
+    this.handleSwitchClick = this.handleSwitchClick.bind(this)
+    if (!switched) {
+      titre_mob = 
+        <div 
+          className="ila_titre_mob">
+            <span className="ila_texte">LOREM</span>
+              <img 
+                className="ila_image"
+                src="/img/ila_image.jpg"/>
+        </div>
+      liste_mob = 
+        <div className="ila_mob" id="ila_mob">
+          <Liste graines={this.state.ila_graines} style='ila_mob_css'/>
+        </div>
+      switch_texte = 'Voir sa liste "Il veut"'
+    } else {
+      titre_mob =
+      <div className="ilveut_titre_mob">
+        <span className="ilveut_texte">IPSUM</span>
+        <img 
+          className="ilveut_image"
+          src="/img/ilveut_image.jpg"/>
+      </div>
+      liste_mob =
+      <div className="ilveut_mob" id="ilveut_mob">
+        <Liste graines={this.state.ilveut_graines} style='ilveut_mob_css'/> 
+      </div>
+      switch_texte = 'Voir sa liste "Il a"'
+    }
+             
 
     return (
 
@@ -409,51 +913,57 @@ class App extends Component {
             <MediaCard
               className="mediacard"
               caracs={this.state.utilisateur}/>
+            
+
             <div className="boutons">
-              <div className="ila_bouton">
-                ila_bouton
+              <div 
+                className="ila_titre">
+                <span className="ila_texte">LOREM</span>
+                <img 
+                  className="ila_image"
+                  src="/img/ila_image.jpg"/>
               </div>
-              <div className="ilveut_bouton">
-                ilveut_bouton
+
+              <div className="ilveut_titre">
+                <span className="ilveut_texte">IPSUM</span>
+                <img 
+                  className="ilveut_image"
+                  src="/img/ilveut_image.jpg"/>
               </div>
+              {titre_mob}
             </div>
             <div className="listes" id="listes">
               <div className="ila" id="ila">
-                <InfiniteScroll
-                  dataLength={graines.length}
-                  hasMore={true}
-                  endMessage={
-                    <p style={{textAlign: 'center'}}>
-                    <b>Yay! You have seen it all</b>
-                    </p>
-                  }
-                  >
-                  {graines}
+                {/*// <InfiniteScroll
+                //   dataLength={graines.length}
+                //   hasMore={true}
+                //   endMessage={
+                //     <p style={{textAlign: 'center'}}>
+                //     <b>Yay! You have seen it all</b>
+                //     </p>
+                //   }
+                //   >
+                //   {graines}
                   
-                </InfiniteScroll>
-                </div>
+                // </InfiniteScroll>*/}
+              
+                  <Liste graines={this.state.ila_graines}/>
+                  
+              </div>
 
 
 
               <div className="ilveut" id="ilveut">
-               
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                  {graines}
-                </div>
-
-
-
+                <Liste graines={this.state.ilveut_graines}/> 
+              </div>
+              {liste_mob}
             </div>
+
           </div>
 
-
+          <button className="switch" onClick={this.handleSwitchClick}>
+            {switch_texte}
+          </button>
 
 
           <div className="pied">
@@ -465,6 +975,8 @@ class App extends Component {
           <div className="contacter">
             contacter
           </div>
+
+
         </div>
       </Fragment>
 

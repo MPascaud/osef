@@ -17,7 +17,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-
 /*
 ['@media (max-width:630px)']: {
         width:620,
@@ -34,6 +33,7 @@ const useStyles_classes = makeStyles({
     // height: 140,
   },
   root: {
+    zIndex:1,
     ['@media (max-width:630px)']: {
         width:'100vw',
 

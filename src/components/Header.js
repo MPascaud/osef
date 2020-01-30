@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import ArrowForward from '@material-ui/icons/ArrowForward';
+
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -75,6 +77,23 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+  messages: {
+    display:'none',
+  },
+  notifications: {
+    display:'none',
+  },
+  inscristoi: {
+    position:'relative',
+    left:'-13px',
+  },
+  headeco: {
+    display:'none',
+  },
+  recherche: {
+    color: 'inherit',
+  }
+
 }));
 
 export default function PrimarySearchAppBar() {
@@ -84,6 +103,7 @@ export default function PrimarySearchAppBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
 
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
@@ -113,8 +133,19 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem 
+        classes={{
+          root: classes.headeco,
+        }}
+        onClick={handleMenuClose}>Déconnexion</MenuItem>
+      <MenuItem 
+        classes={{
+          root: classes.headeco,
+        }}
+        onClick={handleMenuClose}>Mon compte</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Inscription</MenuItem>
+      <MenuItem onClick={handleMenuClose}>J'ai déjà un compte</MenuItem>
+
     </Menu>
   );
 
@@ -135,16 +166,9 @@ export default function PrimarySearchAppBar() {
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Inscription</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={0} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -154,10 +178,11 @@ export default function PrimarySearchAppBar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>J'ai déjà un compte</p>
       </MenuItem>
     </Menu>
   );
+
 
   return (
     <div className={classes.grow}>
@@ -174,12 +199,15 @@ export default function PrimarySearchAppBar() {
 
           
 
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
+          <div 
+            className={classes.search}
+           >
+            <div className={classes.searchIcon}
+            >
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Recherche…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -190,22 +218,43 @@ export default function PrimarySearchAppBar() {
 
           <div className={classes.grow} />
 
-          <Typography className={classes.title} variant="h6" noWrap>
-            Toi aussi, crée ta liste de graines, gratuitement ! fleche
+          <Typography className={classes.title} 
+            classes={{
+                root: classes.inscristoi,
+            }}
+            variant="h6" noWrap>
+            Toi aussi, crée ta liste de graines, gratuitement !
           </Typography>
+
+     
+          <ArrowForward />
+         
+
 
 
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="nombre de messages" color="inherit">
+            <IconButton 
+              classes={{
+                  root: classes.messages,
+                  input: classes.messages,
+              }}
+              aria-label="nombre de messages" color="inherit">
               <Badge badgeContent={0} color="secondary">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="notifications" color="inherit">
+
+            <IconButton
+              classes={{
+                  root: classes.notifications,
+                  input: classes.notifications,
+              }}
+              aria-label="notifications" color="inherit">
               <Badge badgeContent={0} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+            
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -217,6 +266,7 @@ export default function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </div>
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
